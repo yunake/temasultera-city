@@ -2,7 +2,7 @@ import DB from './firebase'
 
 export const storeMarker = async marker => {
   try {
-    await DB.collection('markers').add(marker)
+    await DB.collection('markers-city').add(marker)
   } catch (e) {
     console.error(e)
     alert(e)
@@ -11,7 +11,7 @@ export const storeMarker = async marker => {
 
 export const deleteMarker = async markerFID => {
   try {
-    await DB.collection('markers').doc(markerFID).delete()
+    await DB.collection('markers-city').doc(markerFID).delete()
   } catch (e) {
     console.error(e)
     alert(e)
@@ -20,7 +20,7 @@ export const deleteMarker = async markerFID => {
 
 export const fetchMarkers = async () => {
   try {
-    const querySnapshot = await DB.collection('markers').get()
+    const querySnapshot = await DB.collection('markers-city').get()
 
     const markers = []
     querySnapshot.forEach(doc => {
@@ -54,7 +54,7 @@ export const parseMarkers = (querySnapshot) => {
 
 export const editMarker = async ({ fid, ...marker }) => {
   try {
-    await DB.collection('markers').doc(fid).update(marker)
+    await DB.collection('markers-city').doc(fid).update(marker)
   } catch (e) {
     console.error(e)
     alert(e)

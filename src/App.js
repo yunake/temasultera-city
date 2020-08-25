@@ -37,7 +37,7 @@ function App({ loading, user }) {
   const [newMarkerPosition, setNMP] = useState(null)
 
   useEffect(() => {
-    const unsubscribe = DB.collection('markers')
+    const unsubscribe = DB.collection('markers-city')
       .onSnapshot(function (snapshot) {
         const markersFromDB = parseMarkers(snapshot)
 
